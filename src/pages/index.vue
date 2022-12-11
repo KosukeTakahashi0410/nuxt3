@@ -2,11 +2,16 @@
   <div>
     <h1>This is Sample page</h1>
     <p>{{ displayData }}</p>
+    <p>{{ `id is : ${id}` }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
+// 自前ストアはimportが必要かも？
+import { useId } from "~/store/test2";
 const { $axios } = useNuxtApp();
+
+const { id } = useId();
 
 const displayData = ref<any>(undefined);
 
