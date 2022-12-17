@@ -17,6 +17,8 @@ const test = ref<string>();
 
 const displayData = ref<any>(undefined);
 
+const emits = defineEmits<{ (e: "onClick", value: any): void }>();
+
 useAsyncData(async () => {
   try {
     const data = await $axios.get("https://pokeapi.co/api/v2/pokemon/ditto");
