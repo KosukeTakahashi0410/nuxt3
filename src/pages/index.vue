@@ -8,6 +8,8 @@
       buttonName="ボタンProps渡せて草"
       @onClickButton="onClickButton"
     />
+    <SlotTestCompo text="わろた" />
+    <SlotTestCompo />
   </div>
 </template>
 
