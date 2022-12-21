@@ -11,6 +11,15 @@
     <SlotTestCompo text="わろた" />
     <SlotTestCompo />
     <component :is="componentName" />
+    <ScopedSlotTest>
+      <template v-slot:name>
+        <span>名前です</span>
+        <!-- <SlotTestCompo text="わろた" /> -->
+      </template>
+      <template v-slot:description>
+        <span>概要です</span>
+      </template>
+    </ScopedSlotTest>
   </div>
 </template>
 
