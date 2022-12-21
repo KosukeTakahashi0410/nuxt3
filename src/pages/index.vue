@@ -10,11 +10,15 @@
     />
     <SlotTestCompo text="わろた" />
     <SlotTestCompo />
+    <component :is="componentName" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useId } from "~/store/test2";
+import Sample1 from "../components/Sample1.vue";
+import Sample2 from "../components/Sample2.vue";
+
 const { $axios } = useNuxtApp();
 
 const { id } = useId();
@@ -26,6 +30,14 @@ const displayData = ref<any>(undefined);
 const onClickButton = (value: string) => {
   window.alert(value);
 };
+
+const componentName = computed(() => {
+  if (Math.random() <= 0.5) {
+    return Sample1;
+  }
+
+  return Sample2;
+});
 
 useAsyncData(async () => {
   try {
