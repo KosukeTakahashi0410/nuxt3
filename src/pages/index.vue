@@ -20,6 +20,11 @@
         <span>概要です</span>
       </template>
     </ScopedSlotTest>
+    <SlotCompo>
+      <div>
+        <p>わろた</p>
+      </div>
+    </SlotCompo>
   </div>
 </template>
 
