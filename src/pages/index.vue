@@ -25,6 +25,10 @@
         <p>わろた</p>
       </div>
     </SlotCompo>
+    <!-- MEMO: v-modelを省略すると死ぬ -->
+    <BindSycnSample v-model:text="text" />
+    <p>is text updated?</p>
+    <p>{{ text }}</p>
   </div>
 </template>
 
@@ -38,6 +42,8 @@ const { $axios } = useNuxtApp();
 const { id } = useId();
 
 const test = ref<string>();
+
+const text = ref<string>("");
 
 const displayData = ref<any>(undefined);
 
