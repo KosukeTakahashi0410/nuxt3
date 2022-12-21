@@ -4,6 +4,10 @@
     <p>{{ displayData }}</p>
     <p>{{ `id is : ${id}` }}</p>
     <p>{{ test }}</p>
+    <TestCompo
+      buttonName="ボタンProps渡せて草"
+      @onClickButton="onClickButton"
+    />
   </div>
 </template>
 
@@ -16,6 +20,10 @@ const { id } = useId();
 const test = ref<string>();
 
 const displayData = ref<any>(undefined);
+
+const onClickButton = (value: string) => {
+  window.alert(value);
+};
 
 useAsyncData(async () => {
   try {

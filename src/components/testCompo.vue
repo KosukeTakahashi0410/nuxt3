@@ -1,30 +1,28 @@
 <template>
   <div>
-    <h1>This is Sample page</h1>
-    <p>{{ displayData }}</p>
-    <p>{{ `id is : ${id}` }}</p>
-    <p>{{ test }}</p>
+    <button @click="clickHandler">{{ props.buttonName }}</button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useId } from "~/store/test2";
-const { $axios } = useNuxtApp();
+type Props = {
+  buttonName?: string;
+};
 
-const { id } = useId();
+type Emits = {
+  (e: "onClickButton", value: string): void;
+};
 
-const test = ref<string>();
-
-const displayData = ref<any>(undefined);
-
-const emits = defineEmits<{ (e: "onClick", value: any): void }>();
-
-useAsyncData(async () => {
-  try {
-    const data = await $axios.get("https://pokeapi.co/api/v2/pokemon/ditto");
-    displayData.value = JSON.stringify(data.data.id);
-  } catch (error) {
-    console.error("error!");
-  }
+const props = withDefaults(defineProps<Props>(), {
+  buttonName: "ボタン名なくて草",
 });
+
+const emits = defineEmits<Emits>();
+
+const clickHandler = (e: any) => {
+  console.log("fired");
+  // e.preventDefault();
+
+  emits("onClickButton", "実行されて草");
+};
 </script>
