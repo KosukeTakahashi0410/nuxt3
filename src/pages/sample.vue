@@ -4,17 +4,15 @@
     <!-- xxx.propertyで取れる -->
     <input type="hidden" id="warota" :value="hiddenName.name" />
     <input type="hidden" id="kusowarota" :value="hiddenName.en_name" />
-    <p>{{ `name: ${hiddenName.name}` }}</p>
-    <p>{{ `en_name: ${hiddenName.en_name}` }}</p>
     <label for="sample">ここに値を入れるんご</label>
     <br />
     <select name="sample" @change="onChange">
       <option
-        v-for="(option, index) in INPUT_OPTIONS"
+        v-for="({ value, label }, index) in INPUT_OPTIONS"
         key="index"
-        :value="option.value"
+        :value="value"
       >
-        {{ option.label }}
+        {{ label }}
       </option>
     </select>
     <br />
