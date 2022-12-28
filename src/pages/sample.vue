@@ -8,11 +8,11 @@
     <br />
     <select name="sample" @change="onChange">
       <option
-        v-for="({ value, label }, index) in INPUT_OPTIONS"
-        key="index"
-        :value="value"
+        v-for="option in INPUT_OPTIONS"
+        key="option.value"
+        :value="option.value"
       >
-        {{ label }}
+        {{ option.label }}
       </option>
     </select>
     <br />
